@@ -1,0 +1,77 @@
+
+-- exercise 1
+ select salesman_id, name, city, commission from salesman2
+ where city in('Paris', 'Rome')
+
+ --- exercise 2
+ select salesman_id, name, city, commission from salesman2
+ where city in('Paris', 'Rome')
+
+ --exercise 3
+ select salesman_id, name, city, commission from salesman2
+ where city not in('Paris', 'Rome')
+
+ --exercise 4
+ select customer_id, cust_name, city, grade, salesman_id from customer
+ where customer_id in(3007, 3008, 3009)
+
+ -- exercise 5
+ select * from salesman2
+ where commission>=0.12 and commission<=0.14
+
+ -- exercise 6
+ select * from orders
+ WHERE (purch_amt BETWEEN 500 AND 4000) AND NOT purch_amt IN (948.50, 1983.43)
+
+ --exercise 7
+ select * from salesman2
+ where name between 'A' and 'L'
+
+ -- exercise 8
+ select salesman_id, name, city, commission from salesman2
+ where name not between 'A' and 'M'
+
+ --exercise 9
+ select * from customer
+ where cust_name like('B%')
+
+ --exercise 10
+ select customer_id, cust_name, city, grade, salesman_id from customer
+ where cust_name like('%n')
+
+ --exercise 11
+ select salesman_id, name, city, commission from salesman2
+ where name like('N__l%')
+
+ --exercise 12
+ CREATE TABLE testtable (
+    col1 VARCHAR(255) -- Adjust length if needed
+);
+
+INSERT INTO testtable (col1) VALUES
+('A001/DJ-402\44_/100/2015'),
+('A001_\DJ-402\44_/100/2015'),
+('A001_DJ-402-2014-2015'),
+('A002_DJ-401-2014-2015'),
+('A001/DJ_401'),
+('A001/DJ_402\44'),
+('A001/DJ_402\44\2015'),
+('A001/DJ-402%45\2015/200'),
+('A001/DJ_402\45\2015%100'),
+('A001/DJ_402%45\2015/300'),
+('A001/DJ-402\44');
+
+ select * from testtable
+ where col1 like('%/_%') escape '/'
+
+ --exercise 13 
+  select * from testtable
+ where col1 not like('%/_%') escape '/'
+
+ --exercise 14
+  select * from testtable
+ where col1 like('%//%') escape '/'
+
+ --exercise 15
+   select * from testtable
+ where col1 not like('%//%') escape '/'
