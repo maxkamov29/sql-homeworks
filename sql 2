@@ -1,0 +1,72 @@
+
+--exercise 1
+select customer_id, cust_name, city, grade, salesman_id from customer
+where grade > 100
+
+--exercise 2
+select customer_id, cust_name, city, grade, salesman_id from customer
+where  grade > 100 and city = 'New York'
+
+--exercise 3
+select customer_id, cust_name, city, grade, salesman_id from customer
+where  grade > 100 or city = 'New York'
+
+--exercise 4
+select customer_id, cust_name, city, grade, salesman_id from customer
+where  grade <= 100 or city = 'New York'
+
+--exercise 5
+select customer_id, cust_name, city, grade, salesman_id from customer
+where  grade < 100 and city != 'New York'
+
+--exercise 6
+select ord_no, purch_amt, ord_date, customer_id, salesman_id from orders
+where ord_date = '2012-09-10' and (salesman_id > 5005 or purch_amt > 1000)
+
+--exercise 7
+select salesman_id, name, city, commission from salesman2
+where commission between 0.10 and 0.12
+
+--exercise 8
+select ord_no, purch_amt, ord_date, customer_id, salesman_id from orders
+where purch_amt < 200 or (ord_date >= '2012-02-10'  and customer_id < 3009)
+
+--exercise 9
+select * from orders
+where ord_date = '2012-08-17' or customer_id > 3005 and purch_amt < 1000
+
+--exercise 10
+select ord_no, purch_amt, purch_amt / (6000 / 100) as 'achived %',
+100 - (purch_amt / (6000 / 100)) as 'unachived %'
+from orders
+
+--exercise 11
+CREATE TABLE emp_details (
+    EMP_IDNO   INT PRIMARY KEY,
+    EMP_FNAME  VARCHAR(50),
+    EMP_LNAME  VARCHAR(50),
+    EMP_DEPT   INT
+);
+
+INSERT INTO emp_details (EMP_IDNO, EMP_FNAME, EMP_LNAME, EMP_DEPT) VALUES
+(127323, 'Michale', 'Robbin', 57),
+(526689, 'Carlos', 'Snares', 63),
+(843795, 'Enric', 'Dosio', 57),
+(328717, 'Jhon', 'Snares', 63),
+(444527, 'Joseph', 'Dosni', 47),
+(659831, 'Zanifer', 'Emily', 47),
+(847674, 'Kuleswar', 'Sitaraman', 57),
+(748681, 'Henrey', 'Gabriel', 47),
+(555935, 'Alex', 'Manuel', 57),
+(539569, 'George', 'Mardy', 27),
+(733843, 'Mario', 'Saule', 63),
+(631548, 'Alan', 'Snappy', 27),
+(839139, 'Maria', 'Foster', 57);
+
+select  emp_idno, emp_fname, emp_lname, emp_dept from emp_details
+where EMP_LNAME =  'Dosni' or EMP_LNAME = 'Mardy'
+
+--exercise 12
+select emp_idno, emp_fname, emp_lname, emp_dept from emp_details
+where EMP_DEPT in(47, 63)
+
