@@ -1,0 +1,5 @@
+declare @now datetime = getdate()
+select case when datepart(weekday, @now ) <> 1 then
+dateadd(day, -1*(datepart(weekday, @now )-1), @now)
+else getdate()
+end;
